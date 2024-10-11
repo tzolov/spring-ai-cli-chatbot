@@ -12,18 +12,27 @@ quick build run the app.
 ./mvnw spring-boot:run
 ```
 
-## Auto-configuration
+## Auto-configurations
 
-By default the project uses the OpenAI's boot-starter (`spring-ai-openai-spring-boot-starter`) dependency.
-You can replace it with any other supported AI Models. 
-Check the pom for easy AI model replacement.
-Apart of Ollama/Llama3.2 you would need api-key to access the model provider. 
-Check the `application.properties`.
+### AI Model
 
-Project is configured with `Chroma` (`spring-ai-chroma-store-spring-boot-starter`) vector store running locally.
-The provided `docker-compose.yaml` start a local Chroma instance (using the boot docker compose integration).
+By default, this project uses OpenAI's Spring Boot starter (`spring-ai-openai-spring-boot-starter`). 
+However, you can easily switch to any other supported AI model.
+The `pom.xml` file prvidew few alternative AI model dependencies. (Note: Most models, except Ollama/Llama3.2, require an API key for access.)
+Configure your API key and other model properties in the `application.properties` file.
+The [Chat Model API](https://docs.spring.io/spring-ai/reference/api/chatmodel.html) lists all supported modesl.
 
-The PDF document reading capability is supported by the spring-ai-pdf-document-reader dependency.
+### Vector Store
+
+The project is configured to use Chroma (`spring-ai-chroma-store-spring-boot-starter`) as a vector store, running locally:
+A `docker-compose.yaml` file is provided to start a local Chroma instance.
+The project is configured with Spring Boot Docker Compose integration for easy setup. (e.g. you don't have to start the docker-compose manually).
+Find more about [Vector Stores](https://docs.spring.io/spring-ai/reference/api/vectordbs.html)
+
+### PDF Document Processing
+
+PDF document reading capability is enabled through the `spring-ai-pdf-document-reader` dependency.
+Find more about the Spring AI [document indexing support](https://docs.spring.io/spring-ai/reference/api/etl-pipeline.html)
 
 ## CommandLineRunner
 
