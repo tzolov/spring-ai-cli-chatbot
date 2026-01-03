@@ -1,7 +1,7 @@
 services:
 
     chroma:
-      image: ghcr.io/chroma-core/chroma:0.5.12
+      image: ghcr.io/chroma-core/chroma:1.0.0
       restart: always
       ports:
         - 8000:8000
